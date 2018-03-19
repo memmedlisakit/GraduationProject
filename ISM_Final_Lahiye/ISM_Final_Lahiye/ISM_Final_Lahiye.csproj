@@ -1,0 +1,355 @@
+﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9CDC7F3A-59EA-423C-B90E-11DF3FF86B83}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ISM_Final_Lahiye</RootNamespace>
+    <AssemblyName>ISM_Final_Lahiye</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="404.html" />
+    <Content Include="Areas\Adminpanel\Assets\404.html" />
+    <Content Include="Areas\Adminpanel\Assets\500.html" />
+    <Content Include="Areas\Adminpanel\Assets\alerts.html" />
+    <Content Include="Areas\Adminpanel\Assets\blank.html" />
+    <Content Include="Areas\Adminpanel\Assets\buttons.html" />
+    <Content Include="Areas\Adminpanel\Assets\cards.html" />
+    <Content Include="Areas\Adminpanel\Assets\chartjs.html" />
+    <Content Include="Areas\Adminpanel\Assets\css\styles.css" />
+    <Content Include="Areas\Adminpanel\Assets\forms.html" />
+    <Content Include="Areas\Adminpanel\Assets\imgs\avatar-1.png" />
+    <Content Include="Areas\Adminpanel\Assets\imgs\logo.png" />
+    <Content Include="Areas\Adminpanel\Assets\index.html" />
+    <Content Include="Areas\Adminpanel\Assets\invoice.html" />
+    <Content Include="Areas\Adminpanel\Assets\js\carbon.js" />
+    <Content Include="Areas\Adminpanel\Assets\js\demo.js" />
+    <Content Include="Areas\Adminpanel\Assets\layouts-fixed-header.html" />
+    <Content Include="Areas\Adminpanel\Assets\layouts-fixed-sidebar.html" />
+    <Content Include="Areas\Adminpanel\Assets\layouts-hidden-sidebar.html" />
+    <Content Include="Areas\Adminpanel\Assets\layouts-normal.html" />
+    <Content Include="Areas\Adminpanel\Assets\login.html" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\css\bootstrap.css" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\css\bootstrap.min.css" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\css\mdb.css" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\css\mdb.min.css" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\css\style.css" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\img\lightbox\default-skin.png" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\img\lightbox\default-skin.svg" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\img\lightbox\preloader.gif" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\img\overlays\01.png" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\img\overlays\02.png" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\img\overlays\03.png" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\img\overlays\04.png" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\img\overlays\05.png" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\img\overlays\06.png" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\img\overlays\07.png" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\img\overlays\08.png" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\img\overlays\09.png" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\img\svg\arrow_left.svg" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\img\svg\arrow_right.svg" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\index.html" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\js\bootstrap.js" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\js\bootstrap.min.js" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\js\jquery-3.2.1.min.js" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\js\mdb.js" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\js\mdb.min.js" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\js\popper.min.js" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\license.txt" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\README.txt" />
+    <Content Include="Areas\Adminpanel\Assets\modals.html" />
+    <Content Include="Areas\Adminpanel\Assets\progress-bars.html" />
+    <Content Include="Areas\Adminpanel\Assets\register.html" />
+    <Content Include="Areas\Adminpanel\Assets\settings.html" />
+    <Content Include="Areas\Adminpanel\Assets\tables.html" />
+    <Content Include="Areas\Adminpanel\Assets\Table\dataTables.bootstrap4.css" />
+    <Content Include="Areas\Adminpanel\Assets\Table\dataTables.bootstrap4.js" />
+    <Content Include="Areas\Adminpanel\Assets\Table\jquery.dataTables.js" />
+    <Content Include="Areas\Adminpanel\Assets\Table\sb-admin-datatables.min.js" />
+    <Content Include="Areas\Adminpanel\Assets\tabs.html" />
+    <Content Include="Areas\Adminpanel\Assets\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Areas\Adminpanel\Assets\vendor\chart.js\chart.js" />
+    <Content Include="Areas\Adminpanel\Assets\vendor\chart.js\chart.min.js" />
+    <Content Include="Areas\Adminpanel\Assets\vendor\font-awesome\css\fa-brands.css" />
+    <Content Include="Areas\Adminpanel\Assets\vendor\font-awesome\css\fa-brands.min.css" />
+    <Content Include="Areas\Adminpanel\Assets\vendor\font-awesome\css\fa-regular.css" />
+    <Content Include="Areas\Adminpanel\Assets\vendor\font-awesome\css\fa-regular.min.css" />
+    <Content Include="Areas\Adminpanel\Assets\vendor\font-awesome\css\fa-solid.css" />
+    <Content Include="Areas\Adminpanel\Assets\vendor\font-awesome\css\fa-solid.min.css" />
+    <Content Include="Areas\Adminpanel\Assets\vendor\font-awesome\css\fontawesome-all.css" />
+    <Content Include="Areas\Adminpanel\Assets\vendor\font-awesome\css\fontawesome-all.min.css" />
+    <Content Include="Areas\Adminpanel\Assets\vendor\font-awesome\css\fontawesome.css" />
+    <Content Include="Areas\Adminpanel\Assets\vendor\font-awesome\css\fontawesome.min.css" />
+    <Content Include="Areas\Adminpanel\Assets\vendor\font-awesome\webfonts\fa-brands-400.svg" />
+    <Content Include="Areas\Adminpanel\Assets\vendor\font-awesome\webfonts\fa-regular-400.svg" />
+    <Content Include="Areas\Adminpanel\Assets\vendor\font-awesome\webfonts\fa-solid-900.svg" />
+    <Content Include="Areas\Adminpanel\Assets\vendor\jquery\jquery.js" />
+    <Content Include="Areas\Adminpanel\Assets\vendor\jquery\jquery.min.js" />
+    <Content Include="Areas\Adminpanel\Assets\vendor\popper.js\popper.min.js" />
+    <Content Include="Areas\Adminpanel\Assets\vendor\simple-line-icons\css\simple-line-icons.css" />
+    <Content Include="Areas\Adminpanel\Assets\vendor\simple-line-icons\fonts\Simple-Line-Icons.svg" />
+    <Content Include="Areas\Adminpanel\Assets\widgets.html" />
+    <Content Include="Global.asax" />
+    <Content Include="Uploads\default.png" />
+    <Content Include="Uploads\no_image.png" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Adminpanel\AdminpanelAreaRegistration.cs" />
+    <Compile Include="Areas\Adminpanel\Controllers\BrandController.cs" />
+    <Compile Include="Areas\Adminpanel\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Adminpanel\Controllers\LoginLogoutController.cs" />
+    <Compile Include="Areas\Adminpanel\Controllers\OrderController.cs" />
+    <Compile Include="Areas\Adminpanel\Controllers\PartialsController.cs" />
+    <Compile Include="Areas\Adminpanel\Controllers\PermissionController.cs" />
+    <Compile Include="Areas\Adminpanel\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Adminpanel\Controllers\RoleAndPermissionController.cs" />
+    <Compile Include="Areas\Adminpanel\Controllers\RoleAndUserController.cs" />
+    <Compile Include="Areas\Adminpanel\Controllers\RoleController.cs" />
+    <Compile Include="Areas\Adminpanel\Controllers\UserController.cs" />
+    <Compile Include="Areas\Adminpanel\Filters\UserRoleAuthorizeFilter.cs" />
+    <Compile Include="Areas\Adminpanel\Filters\UserIsLoginFilter.cs" />
+    <Compile Include="Areas\Adminpanel\Models\Brand.cs" />
+    <Compile Include="Areas\Adminpanel\Models\Cart.cs" />
+    <Compile Include="Areas\Adminpanel\Models\Order.cs" />
+    <Compile Include="Areas\Adminpanel\Models\Permission.cs" />
+    <Compile Include="Areas\Adminpanel\Models\PermissionAndRole.cs" />
+    <Compile Include="Areas\Adminpanel\Models\Product.cs" />
+    <Compile Include="Areas\Adminpanel\Models\Role.cs" />
+    <Compile Include="Areas\Adminpanel\ViewModel\RoleAndPermissionVM.cs" />
+    <Compile Include="Areas\Adminpanel\Models\RoleAndUser.cs" />
+    <Compile Include="Areas\Adminpanel\ViewModel\RoleAndUserVM.cs" />
+    <Compile Include="Areas\Adminpanel\Models\Users.cs" />
+    <Compile Include="Areas\Adminpanel\Public\Settings.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="Areas\Adminpanel\Views\web.config" />
+    <Content Include="Areas\Adminpanel\Views\LoginLogout\Login.cshtml" />
+    <Content Include="Areas\Adminpanel\Assets\vendor\font-awesome\webfonts\fa-brands-400.eot" />
+    <Content Include="Areas\Adminpanel\Assets\vendor\font-awesome\webfonts\fa-brands-400.ttf" />
+    <Content Include="Areas\Adminpanel\Assets\vendor\font-awesome\webfonts\fa-brands-400.woff" />
+    <Content Include="Areas\Adminpanel\Assets\vendor\font-awesome\webfonts\fa-brands-400.woff2" />
+    <Content Include="Areas\Adminpanel\Assets\vendor\font-awesome\webfonts\fa-regular-400.eot" />
+    <Content Include="Areas\Adminpanel\Assets\vendor\font-awesome\webfonts\fa-regular-400.ttf" />
+    <Content Include="Areas\Adminpanel\Assets\vendor\font-awesome\webfonts\fa-regular-400.woff" />
+    <Content Include="Areas\Adminpanel\Assets\vendor\font-awesome\webfonts\fa-regular-400.woff2" />
+    <Content Include="Areas\Adminpanel\Assets\vendor\font-awesome\webfonts\fa-solid-900.eot" />
+    <Content Include="Areas\Adminpanel\Assets\vendor\font-awesome\webfonts\fa-solid-900.ttf" />
+    <Content Include="Areas\Adminpanel\Assets\vendor\font-awesome\webfonts\fa-solid-900.woff" />
+    <Content Include="Areas\Adminpanel\Assets\vendor\font-awesome\webfonts\fa-solid-900.woff2" />
+    <Content Include="Areas\Adminpanel\Assets\vendor\simple-line-icons\fonts\Simple-Line-Icons.eot" />
+    <Content Include="Areas\Adminpanel\Assets\vendor\simple-line-icons\fonts\Simple-Line-Icons.ttf" />
+    <Content Include="Areas\Adminpanel\Assets\vendor\simple-line-icons\fonts\Simple-Line-Icons.woff" />
+    <Content Include="Areas\Adminpanel\Assets\vendor\simple-line-icons\fonts\Simple-Line-Icons.woff2" />
+    <Content Include="Areas\Adminpanel\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\Role\Index.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\Role\Update.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\Permission\Index.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\Permission\Update.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\User\Index.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\User\Insert.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\User\Update.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\RoleAndPermission\Index.cshtml" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\font\roboto\Roboto-Bold.eot" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\font\roboto\Roboto-Bold.ttf" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\font\roboto\Roboto-Bold.woff" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\font\roboto\Roboto-Bold.woff2" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\font\roboto\Roboto-Light.eot" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\font\roboto\Roboto-Light.ttf" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\font\roboto\Roboto-Light.woff" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\font\roboto\Roboto-Light.woff2" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\font\roboto\Roboto-Medium.eot" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\font\roboto\Roboto-Medium.ttf" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\font\roboto\Roboto-Medium.woff" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\font\roboto\Roboto-Medium.woff2" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\font\roboto\Roboto-Regular.eot" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\font\roboto\Roboto-Regular.ttf" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\font\roboto\Roboto-Regular.woff" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\font\roboto\Roboto-Regular.woff2" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\font\roboto\Roboto-Thin.eot" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\font\roboto\Roboto-Thin.ttf" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\font\roboto\Roboto-Thin.woff" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\font\roboto\Roboto-Thin.woff2" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\License.pdf" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\scss\core\bootstrap\_functions.scss" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\scss\core\bootstrap\_variables.scss" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\scss\core\_colors.scss" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\scss\core\_global.scss" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\scss\core\_helpers.scss" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\scss\core\_masks.scss" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\scss\core\_mixins.scss" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\scss\core\_typography.scss" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\scss\core\_variables.scss" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\scss\core\_waves.scss" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\scss\free\_animations-basic.scss" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\scss\free\_animations-extended.scss" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\scss\free\_badges.scss" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\scss\free\_buttons.scss" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\scss\free\_cards.scss" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\scss\free\_carousels.scss" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\scss\free\_dropdowns.scss" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\scss\free\_footers.scss" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\scss\free\_forms.scss" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\scss\free\_input-group.scss" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\scss\free\_list-group.scss" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\scss\free\_modals.scss" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\scss\free\_msc.scss" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\scss\free\_navbars.scss" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\scss\free\_pagination.scss" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\scss\free\_tables.scss" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\scss\mdb.scss" />
+    <Content Include="Areas\Adminpanel\Assets\MDB Free\scss\_custom.scss" />
+    <Content Include="Areas\Adminpanel\Views\RoleAndPermission\Insert.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\RoleAndPermission\Update.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\RoleAndUser\Index.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\RoleAndUser\Insert.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\RoleAndUser\Update.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\Partials\Navbar.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\Brand\Index.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\Brand\Update.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\Product\Index.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\Product\Insert.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\Product\Update.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\Product\Customer_index.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\Product\Cart.cshtml" />
+    <Content Include="Areas\Adminpanel\Views\Order\Index.cshtml" />
+    <None Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>64403</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:64403/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,39 @@
+﻿@using ISM_Final_Lahiye.Areas.Adminpanel.Models;
+@model Role
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Areas/Adminpanel/Views/Shared/_Layout.cshtml";
+}
+
+<a href="@Url.Action("Index", "Role")" class="btn btn-warning"><i class="icon icon-action-undo"></i> Back</a>
+<br />
+<br />
+  
+<div class="card">
+    <div class="card-header bg-light">
+        Update Role
+    </div>
+    <div class="card-body">
+        <form action="@Url.Action("Update", "Role", new { id = Model.role_id})" method="post">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="normal-input" class="form-control-label">Role name :</label>
+                        <input type="text" id="normal" class="form-control" name="role_name" value="@Model.role_name">
+                    </div>
+                </div>
+                <div class="col-md-2 offset-md-6">
+                    <div class="form-group">
+                        <label class="form-control-label" style="color:transparent">hidden</label>
+                        <input type="submit" class="form-control btn btn-primary" value="Save">
+                    </div>
+                </div>
+            </div>
+        </form>
+        @if (TempData["error"] != null)
+        {
+            <label class="alert alert-danger">@TempData["error"]</label>
+        } 
+    </div>
+</div>
+

@@ -1,0 +1,90 @@
+﻿@using ISM_Final_Lahiye.Areas.Adminpanel.Models
+
+@model IEnumerable<RoleAndUser>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Adminpanel/Views/Shared/_Layout.cshtml";
+}
+
+<a href="@Url.Action("Insert", "RoleAndUser")" class="btn btn-success"><i class="icon icon-plus"></i> Add new Role to User</a>
+<br />
+<br />
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> User and Roles 
+    </div>
+    <div class="card-body" id="roleAndUser">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Email</th>
+                        <th>Photo</th>
+                        <th>Role</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var row in Model) 
+                    {
+                        <tr class="text-center">
+                            <td>@row.user_username</td>
+                            <td>@row.user_email</td>
+                            <td>
+                                @if (row.user_img == "")
+                                {
+                                    <img src="~/Uploads/default.png" width="50" class="rounded mx-auto d-block" />
+                                }
+                                else
+                                {
+                                    <img src="~/Uploads/@row.user_img" width="50" class="rounded mx-auto d-block" />
+                                }
+                            </td>
+                            <td>@row.role_name</td>
+                            <td>
+                                <a href="#" class="btn btn-danger btn-sm float-right activeAccount" data-toggle="modal" data-target="#delete_modal" data-id="@row.p_id">
+                                    <i class="icon icon-trash"></i>   Delete
+                                </a>
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Update", "RoleAndUser", new { id = row.user_id })" class="btn btn-info btn-sm float-right ">
+                                    <i class="icon icon-pencil"></i>   Update
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@* Delete modal*@
+<div class="modal fade" id="delete_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-danger border-0">
+                <h5 class="modal-title text-white"> Do you want delete this item ? </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body p-5">
+
+            </div>
+            <div class="modal-footer border-0">
+                <button id="delete_cancel" type="button" class="btn btn-outline-primary" data-dismiss="modal">Cancel</button>
+                <a href="#" id="delete_link_a" class="btn btn-danger">
+                    Delete
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

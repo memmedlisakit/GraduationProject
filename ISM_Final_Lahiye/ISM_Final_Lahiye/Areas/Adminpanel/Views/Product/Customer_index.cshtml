@@ -1,0 +1,116 @@
+﻿@using ISM_Final_Lahiye.Areas.Adminpanel.Models;
+
+@model List<Product>
+
+@{
+    ViewBag.Title = "Customer_index";
+    Layout = "~/Areas/Adminpanel/Views/Shared/_Layout.cshtml";
+}
+
+ 
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> All Products
+    </div>
+    <div class="card-body" id="product">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Product name</th>
+                        <th>Brand</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Image</th>
+                        <th>Color</th>
+                        <th>Buy quantity</th>
+                        <th></th> 
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Product pr in Model)
+                    {
+                        <tr class="text-center">
+                            <td>@pr.pro_name</td>
+                            @foreach (Brand br in ViewBag.brands)
+                            {
+                                if (br.brand_id == pr.pro_brand_id)
+                                {
+                                    <td>@br.brand_name</td>
+                                }
+                            }
+                            <td>$ @pr.pro_price</td>
+                            <td>@pr.pro_quantity</td>
+                            <td>
+                                @if (pr.pro_img == "")
+                                {
+                                    <img src="~/Uploads/no_image.png" width="40" class="rounded mx-auto d-block" />
+                                }
+                                else
+                                {
+                                    <img src="~/Uploads/@pr.pro_img" width="40" class="rounded mx-auto d-block" />
+                                }
+                            </td>
+                            <td>
+                                @if (pr.pro_color == "")
+                                {
+                                    <span>No color</span>
+                                }
+                                else
+                                {
+                                    <span style="padding:0px 10px;border-radius:100%; background-color:@pr.pro_color;"></span>
+                                }
+                            </td>     
+                            <td> 
+                                <div class="center">
+                                     <div class="input-group" style="flex-wrap: nowrap;">
+                                         <span class="input-group-btn">
+                                             <button type="button" class="btn btn-default btn-number minus_count">
+                                                 <i class="fa fa-minus"></i>
+                                             </button>
+                                         </span>
+                                        <input type="number" name=" " class="product_count" value="0" min="1" max="10">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default btn-number plus_count">
+                                                <i class="fa fa-plus"></i>
+                                            </button>
+                                        </span> 
+                                        </div>
+                                  </div>
+                            </td>
+                            <td>
+                                <div class="row row_reset_margin">
+                                    <button type="button" class="btn btn-info btn-rounded waves-effect btn-sm add_cart" data-product_id="@pr.pro_id"> <i class="fa fa-shopping-cart"></i> Add to Cart</button>
+                                </div>
+                             </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="modal fade" id="cart_error" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content bg-danger">
+            <div class="modal-header border-0">
+                <h5 class="modal-title text-white" id="modal_title"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-white p-5" id="modal_text">
+                
+            </div>
+            <div class="modal-footer border-0">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,78 @@
+﻿@using ISM_Final_Lahiye.Areas.Adminpanel.Models;
+
+@model RoleAndUserVM
+
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Areas/Adminpanel/Views/Shared/_Layout.cshtml";
+}
+
+
+<a href="@Url.Action("Index", "RoleAndUser")" class="btn btn-warning"><i class="icon icon-action-undo"></i> Back</a>
+<br />
+<br />
+
+
+<form action="@Url.Action("Update", "RoleAndUser", new { id = ViewBag.user_id })" method="post">
+    <div class="card">
+        <div class="card-header bg-light">
+            User
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="single-select" style="color:transparent;">sfsdfsd</label>
+                        <input type="text" disabled class="form-control" value="@Model.users.FirstOrDefault(u=>u.user_id == ViewBag.user_id).user_username"/>
+                    </div>
+                </div>
+                <div class="col-md-4 offset-md-4">
+                    <div class="form-group">
+                        <div>
+                            <label for="single-select"></label>
+                        </div>
+                        <input type="submit" class="btn btn-primary float-right" value="Save" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header bg-light">
+                    Roles
+                </div>
+                <div class="card-body">
+                    @foreach (Role role in Model.roles)
+                    {
+                        string input_checked = "";
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="toggle-switch float-right" data-ts-color="primary">
+                                    <label for="@role.role_id" class="ts-label">@role.role_name</label>
+                                     @foreach (var item in ViewBag.roles)
+                                     {
+                                         if (item == role.role_id)
+                                         {
+                                             input_checked = "checked";
+                                         }
+                                     }
+                                    <input id="@role.role_id" type="checkbox" @input_checked hidden="hidden" name="role_id" value="@role.role_id">
+                                    <label for="@role.role_id" class="ts-helper"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+
+

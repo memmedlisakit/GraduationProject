@@ -1,0 +1,133 @@
+﻿@using ISM_Final_Lahiye.Areas.Adminpanel.Models;
+
+@model Product
+
+
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Areas/Adminpanel/Views/Shared/_Layout.cshtml";
+}
+
+<a href="@Url.Action("Index", "Product")" class="btn btn-warning"><i class="icon icon-action-undo"></i> Back</a>
+<br />
+<br />
+
+<div class="card">
+    <div class="card-header bg-light">
+        Update Product  
+    </div>
+  <div class="card-body">
+        <form action="/Product/Update/@Model.pro_id" method="post" enctype="multipart/form-data" autocomplete="off">
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="required-input" class="require">Product name : </label>
+                        <input id="required-input" class="form-control" required name="pro_name" value="@Model.pro_name">
+                        <br />
+                        <label id="label"></label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="required-input" class="require">Quantity : </label>
+                        <input id="required-input" class="form-control" required name="pro_quantity" type="number" step="0.01" value="@Model.pro_quantity">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="required-input" class="require">Price : </label>
+                        <input id="required-input" class="form-control" required name="pro_price" type="number" step="0.01" value="@Model.pro_price">
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="single-select" class="require">Select a Brand :</label>
+                        <select id="single-select" class="form-control" name="pro_brand_id">
+                            @foreach (Brand brand in ViewBag.update_brands)
+                            {
+                                if (brand.brand_id == Model.pro_brand_id)
+                                {
+                                    <option selected value="@brand.brand_id">@brand.brand_name</option>
+                                }
+                                else
+                                {
+                                    <option value="@brand.brand_id">@brand.brand_name</option>
+                                }
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="required-input">Color : </label>
+                        <i class="icon icon-printer" id="color_icon" style="color:@Model.pro_color"></i>
+                        <input type="text" id="product_color" name="pro_color" value="" />
+                        <div class="row">
+                            <div class="col-md-2 col-sm-2">
+                                <div class="color"></div>
+                            </div>
+                            <div class="col-md-2 col-sm-2">
+                                <div class="color"></div>
+                            </div>
+                            <div class="col-md-2 col-sm-2">
+                                <div class="color"></div>
+                            </div>
+                            <div class="col-md-2 col-sm-2">
+                                <div class="color"></div>
+                            </div>
+                            <div class="col-md-2 col-sm-2">
+                                <div class="color"></div>
+                            </div>
+                            <div class="col-md-2 col-sm-2">
+                                <div class="color"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <br />
+                        <br />
+                        <div class="toggle-switch float-right" data-ts-color="secondary">
+                            <label for="ts3" class="ts-label">Status</label> 
+                            @{ string status = Model.pro_status == "True" ? "checked" : "";}
+                            <input @status id="ts3" name="pro_status" type="checkbox" hidden="hidden">
+                            <label for="ts3" class="ts-helper"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="required-input">Image : </label>
+                        <input id="required-input" class="form-control" type="file" name="pro_img">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    @if (Model.pro_img == "")
+                    {
+                        <img src="~/Uploads/no_image.png" width="60" class="rounded mx-auto d-block" />
+                    }
+                    else
+                    {
+                        <img src="~/Uploads/@Model.pro_img" width="60" class="rounded mx-auto d-block" />
+                    }
+                </div>
+                    <div class="col-md-2">
+                        <br />
+                        <div class="form-group float-right">
+                            <label for="required-input" style="color:transparent">df</label>
+                            <input class="form-control btn btn-primary" type="submit" value="Save">
+                        </div>
+                    </div>
+                </div>
+        </form>
+    </div>
+</div>
+
+
+
+

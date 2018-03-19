@@ -1,0 +1,164 @@
+﻿@using ISM_Final_Lahiye.Areas.Adminpanel.Filters;
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets/vendor/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets/vendor/font-awesome/css/fontawesome-all.min.css">
+    <link href="~/Areas/Adminpanel/Assets/Table/dataTables.bootstrap4.css" rel="stylesheet" />
+    <link href="~/Areas/Adminpanel/Assets/MDB Free/css/mdb.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets/css/styles.css">
+</head>
+<body class="sidebar-fixed header-fixed">
+    <div class="page-wrapper">
+        @Html.Action("Navbar", "Partials")
+        <div class="main-container">
+            <div class="sidebar">
+              
+                <nav class="sidebar-nav">
+                    <ul class="nav">
+                        <li class="nav-title">Navigation</li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("Index", "Dashboard")" class="nav-link">
+                                <i class="icon icon-speedometer"></i> Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item nav-dropdown">
+                            <a href="#" class="nav-link nav-dropdown-toggle">
+                                <i class="icon icon-user"></i> Admin <i class="fa fa-caret-left"></i>
+                            </a>
+                            <ul class="nav-dropdown-items">
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Index", "Role")" class="nav-link">
+                                        <i class="icon icon-note"></i> Roles
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Index", "Permission")" class="nav-link">
+                                        <i class="icon icon-check"></i> Permissions
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Index", "User")" class="nav-link">
+                                        <i class="icon icon-people"></i> Users
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Index", "RoleAndUser")" class="nav-link">
+                                        <i class="icon icon-plus"></i> Roles And Users
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Index", "RoleAndPermission")" class="nav-link">
+                                        <i class="icon icon-plus"></i> Roles And Permissons
+                                    </a>
+                                </li>
+                            </ul>
+                        </li> 
+                        <li class="nav-item nav-dropdown">
+                            <a href="#" class="nav-link nav-dropdown-toggle">
+                                <i class="icon icon-chart"></i> Invetory Core <i class="fa fa-caret-left"></i>
+                            </a>
+                            <ul class="nav-dropdown-items">
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Index", "Brand")" class="nav-link">
+                                        <i class="icon icon-check"></i> Brands
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Index", "Product")" class="nav-link">
+                                        <i class="icon icon-printer"></i>Admin Products
+                                    </a>
+                                </li> 
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("Customer_index", "Product")" class="nav-link">
+                                <i class="icon icon-printer"></i> Customer Products
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("Index", "Order")" class="nav-link">
+                                <i class="icon icon-organization"></i> All Orders
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="content">
+                @RenderBody() 
+            </div>
+        </div>
+    </div> 
+
+
+
+    <script src="~/Areas/Adminpanel/Assets/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets/vendor/popper.js/popper.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets/vendor/chart.js/chart.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets/js/carbon.js"></script>
+    <script src="~/Areas/Adminpanel/Assets/Table/jquery.dataTables.js"></script>
+    <script src="~/Areas/Adminpanel/Assets/Table/dataTables.bootstrap4.js"></script>
+    <script src="~/Areas/Adminpanel/Assets/Table/sb-admin-datatables.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets/MDB Free/js/mdb.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets/js/demo.js"></script>
+
+
+    @* Delete error modal *@
+    <div class="modal fade" id="delete_error_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-danger border-0">
+                    <h5 class="modal-title text-white">Delete error details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body p-5">
+                    @if (TempData["delete_error_message"] != null)
+                    {
+                        <span>@TempData["delete_error_message"]</span>
+                        <script type="text/javascript" language="javascript">
+                            $("#delete_error_modal").modal("show");
+                        </script>
+                    }
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @* Permission warning *@
+    <div class="modal fade" id="permission_warning" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content bg-warning">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title text-white">Warning details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-white p-5">
+                    @if (UserRoleAuthorizeFilter.permission_warning != null) 
+                    {
+                        <span>@UserRoleAuthorizeFilter.permission_warning</span>
+                        <script type="text/javascript" language="javascript">
+                            $("#permission_warning").modal("show")
+                        </script>
+                        UserRoleAuthorizeFilter.permission_warning = null;
+                    }
+                </div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

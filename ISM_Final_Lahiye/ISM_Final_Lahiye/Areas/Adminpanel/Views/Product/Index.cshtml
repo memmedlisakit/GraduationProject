@@ -1,0 +1,119 @@
+﻿@using ISM_Final_Lahiye.Areas.Adminpanel.Models;
+
+@model List<Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Adminpanel/Views/Shared/_Layout.cshtml";
+}
+
+<a href="@Url.Action("Insert", "Product")" class="btn btn-info"><i class="icon icon-plus"></i> Add new Product</a>
+<br />
+<br />
+
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> All Products
+    </div>
+    <div class="card-body" id="product">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Product name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Image</th>
+                        <th>Color</th>
+                        <th>Status</th>
+                        <th>Brand</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Product pr in Model)
+                    {
+                        <tr class="text-center">
+                            <td>@pr.pro_name</td>
+                            <td>@pr.pro_price</td>
+                            <td>@pr.pro_quantity</td>
+                            <td>
+                                @if (pr.pro_img == "")
+                                {
+                                    <img src="~/Uploads/no_image.png" width="40" class="rounded mx-auto d-block" />
+                                }
+                                else
+                                {
+                                    <img src="~/Uploads/@pr.pro_img" width="40" class="rounded mx-auto d-block" />
+                                }
+                            </td>
+                            <td>
+                                @if (pr.pro_color == "")
+                                {
+                                    <span>No color</span>
+                                }
+                                else
+                                {
+                                    <span style="padding:0px 10px;border-radius:100%; background-color:@pr.pro_color;"></span> 
+                                }
+                            </td>
+                            <td>
+                                @if (pr.pro_status == "True")
+                                {
+                                    <span class="badge badge-info">Active</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-warning">Passive</span>
+                                }
+                            </td>
+                            @foreach (Brand br in ViewBag.barnds)
+                            {
+                                if (br.brand_id == pr.pro_brand_id)
+                                {
+                                    <td>@br.brand_name</td>
+                                }
+                            } 
+                            <td>
+                                <a href="#" class="btn btn-danger btn-sm float-right activeAccount" data-toggle="modal" data-target="#delete_modal" data-id="@pr.pro_id">
+                                    <i class="icon icon-trash"></i>   
+                                </a>
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Update", "Product", new { id = pr.pro_id })" class="btn btn-info btn-sm float-right ">
+                                    <i class="icon icon-pencil"></i>   
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@* Delete modal*@
+<div class="modal fade" id="delete_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-danger border-0">
+                <h5 class="modal-title text-white"> Do you want delete this item ? </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body p-5">
+
+            </div>
+            <div class="modal-footer border-0">
+                <button id="cancel_product" type="button" class="btn btn-outline-primary" data-dismiss="modal">Cancel</button>
+                <a href="#" id="delete_product" class="btn btn-danger">
+                    Delete
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+

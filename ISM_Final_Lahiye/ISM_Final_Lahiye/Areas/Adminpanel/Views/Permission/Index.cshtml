@@ -1,0 +1,45 @@
+﻿@using ISM_Final_Lahiye.Areas.Adminpanel.Models
+
+@model IEnumerable<Permission>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Adminpanel/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<!-- Example DataTables Card-->
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> All Roles
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Permission link name</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.per_link</td> 
+                            <td>
+                                <a href="@Url.Action("Update", "Permission", new { id = item.per_id })" class="btn btn-info btn-sm float-right ">
+                                    <i class="icon icon-pencil"></i>   Update
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+

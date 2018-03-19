@@ -1,0 +1,61 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets/vendor/simple-line-icons/css/simple-line-icons.css">
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets/vendor/font-awesome/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="~/Areas/Adminpanel/Assets/css/styles.css">
+</head>
+<body>
+    <div class="page-wrapper flex-row align-items-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-5">
+                    <form method="post" action="@Url.Action("Login","LoginLogout")">
+                        <div class="card p-4">
+                            <div class="card-header text-center text-uppercase h4 font-weight-light">
+                                Login
+                            </div>
+                            <div class="card-body py-5">
+                                <div class="form-group">
+                                    <label class="form-control-label">Email</label>
+                                    <input name="user_email" type="email" class="form-control" placeholder="example.gmail.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label">Password</label>
+                                    <input name="user_password" type="password" class="form-control" placeholder="********" required>
+                                </div>   
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" id="login">
+                                        <label class="custom-control-label" for="login">Remember me</label>
+                                    </div> 
+                            </div>
+                            <div class="card-footer">
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6">
+                                        <button type="submit" class="btn btn-primary px-5">Login</button> 
+                                    </div> 
+                                </div>
+                            </div>
+                            @if (ViewBag.error != null) 
+                            {
+                                <div class="alert alert-danger">@ViewBag.error</div>
+
+                            } 
+                        </div>
+                    </form> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/Areas/Adminpanel/Assets/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets/vendor/popper.js/popper.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets/vendor/chart.js/chart.min.js"></script>
+    <script src="~/Areas/Adminpanel/Assets/js/carbon.js"></script>
+    <script src="~/Areas/Adminpanel/Assets/js/demo.js"></script>
+</body>
+</html>

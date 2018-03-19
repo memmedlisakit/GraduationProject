@@ -1,0 +1,90 @@
+﻿@using ISM_Final_Lahiye.Areas.Adminpanel.Models
+
+@model List<Order>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Adminpanel/Views/Shared/_Layout.cshtml";
+}
+
+<h2>All Orders</h2>
+
+<div class="row mt-4">
+    @foreach (var order in Model)
+    {
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-light">
+                    @if (order.user_img == "")
+                    {
+                        <img src="~/Uploads/default.png" class="avatar avatar-sm rounded" width="50" />
+                    }
+                    else
+                    {
+                        <img src="~/Uploads/@order.user_img" class="avatar avatar-sm rounded" width="70" />
+                    }
+                    <br />
+                    <br />
+                    <h3>@order.user_username </h3>
+                    <div class="card-actions">
+                        <div class="toggle-switch p-3" data-ts-color="info">
+                            @{ 
+                                string icon_class_name = order.order_status == true ? "fa-check-square" : "fa-spinner";
+                                string check_status = order.order_status == true ? "checked" : "";
+                                string label_class_name = order.order_status == true ? "badge-success" : "badge-warning";
+                             }
+                            <label style="font-size:15px;" for="@order.order_id" class="ts-label badge @label_class_name order_status_text">
+                                <i class="fas @icon_class_name"></i>
+                            </label> 
+                            <input id="@order.order_id" type="checkbox" hidden="hidden" class="order_check_status @check_status" @check_status  data-order_id="@order.order_id">
+                            <label for="@order.order_id" class="ts-helper"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <b>User Email : </b>
+                    <br />
+                    @order.user_email
+                    <hr />
+                    <b>Order date : </b>
+                    <br />
+                    @order.order_date.ToString("dd-MMM-yyyy")
+                    <hr />
+                    <b>Product name : </b>
+                    <br />
+                   @order.pro_name
+                    <hr />
+                    <b>Quantity : </b>
+                    <br />
+                    @order.order_product_quantity
+                    <hr />
+                    <b>Total Price : </b>
+                    <br />
+                    $ @order.order_total_price
+                    <hr />
+                    <button class="btn btn-danger delete_order" data-delete_order_id="@order.order_id"><i class="far fa-trash-alt"></i>  Remove</button>
+                </div>
+            </div> 
+        </div>
+    } 
+</div>
+
+<div class="modal fade" id="order_status" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content bg-danger">
+            <div class="modal-header border-0">
+                <h5 class="modal-title text-white" id="modal_title"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-white p-5" id="modal_text">
+
+            </div>
+            <div class="modal-footer border-0">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

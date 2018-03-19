@@ -1,0 +1,61 @@
+﻿@using ISM_Final_Lahiye.Areas.Adminpanel.Models
+
+@model Users
+
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Areas/Adminpanel/Views/Shared/_Layout.cshtml";
+}
+<a href="@Url.Action("Index", "User")" class="btn btn-warning"><i class="icon icon-action-undo"></i> Back</a>
+<br />
+<br />
+<div class="card">
+    <div class="card-header bg-light">
+        Update user
+    </div>
+    <div class="card-body">
+        <form action="/User/Update/@Model.user_id" method="post" enctype="multipart/form-data" autocomplete="off">
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="required-input" class="require">Username : </label>
+                        <input id="required-input" class="form-control input_username" required name="user_username" value="@Model.user_username">
+                        <br />
+                        <label id="label"></label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="required-input" class="require">Email : </label>
+                        <input id="required-input" class="form-control" required name="user_email" value="@Model.user_email">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="required-input">Image : </label>
+                        <input id="required-input" class="form-control" type="file" name="user_img">
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4"> 
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="required-input" style="color:transparent">df</label>
+                        <input class="form-control btn btn-primary" id="add_btn"  type="submit" value="Save">
+                    </div>
+                </div>
+                <div class="col-md-2 offset-md-7">
+                    @if (Model.user_img == "")
+                    {
+                        <img src="~/Uploads/default.png" width="100" class="rounded mx-auto d-block" />
+                    }
+                    else
+                    {
+                        <img src="~/Uploads/@Model.user_img" width="100" class="rounded mx-auto d-block" />
+                    }
+                </div> 
+            </div> 
+        </form>
+    </div>
+</div>
+

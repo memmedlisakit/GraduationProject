@@ -1,0 +1,115 @@
+﻿@using ISM_Final_Lahiye.Areas.Adminpanel.Models;
+
+@model Product
+
+@{
+    ViewBag.Title = "Insert";
+    Layout = "~/Areas/Adminpanel/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<a href="@Url.Action("Index", "Product")" class="btn btn-warning"><i class="icon icon-action-undo"></i> Back</a>
+<br />
+<br />
+
+<div class="card">
+    <div class="card-header bg-light">
+        Add new Product
+    </div>
+    <div class="card-body">
+        <form action="/Product/Insert" method="post" enctype="multipart/form-data" autocomplete="off">
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="required-input" class="require">Product name : </label>
+                        <input id="required-input" class="form-control" required name="pro_name">
+                        <br />
+                        <label id="label"></label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="required-input" class="require">Quantity : </label>
+                        <input id="required-input" class="form-control" required  name="pro_quantity" type="number"  step="0.01">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="required-input" class="require">Price : </label>
+                        <input id="required-input" class="form-control" required  name="pro_price" type="number"  step="0.01">
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4"> 
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="single-select" class="require">Select a Brand :</label>
+                        <select id="single-select" class="form-control" name="pro_brand_id">
+                            @foreach (Brand brand in ViewBag.brands)
+                            {
+                                <option value="@brand.brand_id">@brand.brand_name</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="required-input">Color : </label>
+                        <i class="icon icon-printer" id="color_icon"></i>
+                        <input type="text" id="product_color" name="pro_color" value=""/>
+                        <div class="row">
+                            <div class="col-md-2 col-sm-2">
+                                <div class="color"></div>
+                            </div> 
+                            <div class="col-md-2 col-sm-2">
+                                <div class="color"></div>
+                            </div> 
+                            <div class="col-md-2 col-sm-2">
+                                <div class="color"></div>
+                            </div> 
+                            <div class="col-md-2 col-sm-2">
+                                <div class="color"></div>
+                            </div> 
+                            <div class="col-md-2 col-sm-2">
+                                <div class="color"></div>
+                            </div> 
+                            <div class="col-md-2 col-sm-2">
+                                <div class="color"></div>
+                            </div> 
+                        </div>
+                    </div>
+                </div> 
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <br />
+                        <br /> 
+                        <div class="toggle-switch float-right" data-ts-color="secondary" >
+                            <label for="ts3" class="ts-label">Status</label>
+                            <input id="ts3" name="pro_status" type="checkbox" hidden="hidden">
+                            <label for="ts3" class="ts-helper"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="required-input">Image : </label>
+                        <input id="required-input" class="form-control" type="file" name="pro_img">
+                    </div>
+                </div> 
+                    <div class="col-md-8">
+                        <br />
+                        <div class="form-group float-right">
+                            <label for="required-input" style="color:transparent">df</label>
+                            <input class="form-control btn btn-primary" id="add_btn" type="submit" value="Add">
+                        </div>
+                    </div>
+                </div>
+        </form>
+    </div>
+</div>
+
+
+ 
